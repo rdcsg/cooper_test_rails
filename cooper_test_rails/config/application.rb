@@ -39,3 +39,4 @@ module CooperTestRails
       generate.controller_specs false
   end
 end
+end
