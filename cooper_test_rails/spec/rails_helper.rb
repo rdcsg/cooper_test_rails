@@ -63,3 +63,11 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
+RSpec.configure do |config|
+  config.include(Shoulda::Matchers::ActiveRecord, type :model)
+  config.include FactoryGirl::Syntax::Methods
+  config.include ResponseJSON
+end
