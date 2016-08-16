@@ -10,18 +10,17 @@ RSpec.describe User, type: :model do
     it {is_expected.to validate_confirmation_of(:password)}
   end
 
-  descrive 'should not have invalid email' do
+  describe 'should not have invalid email' do
     emails =['asdf@ ds.com', '@example.com', 'test me @yahoo.com', 'asdf@example', 'ddd@.d. .d', 'ddd@.d']
-    emails.each |email| do
+    emails.each do |email|
       it { is_expected.not_to allow_value(email).for(:email) }
     end
   end
 
   describe 'should have a valid email address' do
     emails = ['asdf@ds.com', 'hello@example.uk', 'test1234@yahoo.si', 'asdf@example.eu']
-      emails.each do |email|
-        it { is_expected.to allow_value(email).for(:email) }
-      end
+    emails.each do |email|
+      it { is_expected.to allow_value(email).for(:email) }
     end
   end
 
